@@ -1,8 +1,8 @@
 package sonsanimais.classes;
 
-public class Cachorro extends Animal implements SonografiaAnimal{
-
-	public Cachorro(String nomePopular, String nomeCientifico, String expectativaVida, String nomeDoPet) {
+public class Gato extends Animal implements SonografiaAnimal{
+	
+	public Gato(String nomePopular, String nomeCientifico, String expectativaVida, String nomeDoPet) {
 		super(nomePopular, nomeCientifico, expectativaVida, nomeDoPet);
 	}
 	
@@ -12,11 +12,11 @@ public class Cachorro extends Animal implements SonografiaAnimal{
 	}
 	
 	public String somAnimal() {
-		return "\nComo sou um cachorro, eu me comunico pelo latido.";
+		return "\nComo sou um gato, eu me comunico pelo miado.";
 	}	
 	
 	public String onomatopeiaSomAnimal() {
-		return "\nEu faço Au-Au!";
+		return "\nEu faço Miau!";
 	}
 	
 }

@@ -5,11 +5,13 @@ public abstract class Animal {
 	private String nomePopular;
 	private String nomeCientifico;
 	private String expectativaVida;
+	private String nomeDoPet;
 	
-	public Animal(String nomePopular, String nomeCientifico, String expectativaVida) {
+	public Animal(String nomePopular, String nomeCientifico, String expectativaVida, String nomeDoPet) {
 		this.nomePopular = nomePopular;
 		this.nomeCientifico = nomeCientifico;
 		this.expectativaVida = expectativaVida;
+		this.nomeDoPet = nomeDoPet;
 	}
 
 	public String getNomePopular() {
@@ -36,6 +38,15 @@ public abstract class Animal {
 		this.expectativaVida = expectativaVida;
 	}
 	
+	
+	public String getNomeDoPet() {
+		return nomeDoPet;
+	}
+
+	public void setNomeDoPet(String nomeDoPet) {
+		this.nomeDoPet = nomeDoPet;
+	}
+
 	public abstract String toString();
 	
 
