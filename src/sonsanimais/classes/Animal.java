@@ -1,12 +1,12 @@
 package sonsanimais.classes;
 
-public class Animal {
+public abstract class Animal {
 	
 	private String nomePopular;
 	private String nomeCientifico;
-	private int expectativaVida;
+	private String expectativaVida;
 	
-	public Animal(String nomePopular, String nomeCientifico, int expectativaVida) {
+	public Animal(String nomePopular, String nomeCientifico, String expectativaVida) {
 		this.nomePopular = nomePopular;
 		this.nomeCientifico = nomeCientifico;
 		this.expectativaVida = expectativaVida;
@@ -28,14 +28,15 @@ public class Animal {
 		this.nomeCientifico = nomeCientifico;
 	}
 
-	public int getExpectativaVida() {
+	public String getExpectativaVida() {
 		return expectativaVida;
 	}
 
-	public void setExpectativaVida(int expectativaVida) {
+	public void setExpectativaVida(String expectativaVida) {
 		this.expectativaVida = expectativaVida;
 	}
 	
+	public abstract String toString();
 	
 
 }

@@ -2,8 +2,10 @@ package sonsanimais.telas;
 
 import java.applet.Applet;
 import java.applet.AudioClip;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -17,13 +19,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
-import java.awt.Toolkit;
-import java.awt.Color;
 import javax.swing.border.TitledBorder;
+
+import sonsanimais.classes.Cachorro;
+import javax.swing.border.EtchedBorder;
+import java.awt.Insets;
 
 public class AplicativoSonsAnimais extends JFrame {
 
 	private JPanel contentPane;
+	JTextArea txtInformacaoAnimal;
 
 	/**
 	 * Launch the application.
@@ -71,6 +76,7 @@ public class AplicativoSonsAnimais extends JFrame {
 		btnCachorro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				tocarSom("auuu");
+				infoAnimal("cachorro");
 			}
 		});
 		btnCachorro.setIcon(new ImageIcon(AplicativoSonsAnimais.class.getResource("/sonsanimais/imagens/dog.png")));
@@ -100,11 +106,19 @@ public class AplicativoSonsAnimais extends JFrame {
 		contentPane.add(btnElefante);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setViewportBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		scrollPane.setFont(new Font("Eras Demi ITC", Font.PLAIN, 20));
+		scrollPane.setViewportBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Sobre o nosso amiguinho:", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		scrollPane.setBounds(10, 230, 464, 220);
 		contentPane.add(scrollPane);
 		
-		JTextArea txtInformacaoAnimal = new JTextArea();
+		txtInformacaoAnimal = new JTextArea();
+		txtInformacaoAnimal.setWrapStyleWord(true);
+		txtInformacaoAnimal.setMargin(new Insets(8, 8, 2, 2));
+		txtInformacaoAnimal.setTabSize(80);
+		txtInformacaoAnimal.setColumns(1);
+		txtInformacaoAnimal.setLineWrap(true);
+		txtInformacaoAnimal.setEditable(false);
+		txtInformacaoAnimal.setFont(new Font("Ebrima", Font.PLAIN, 18));
 		txtInformacaoAnimal.setLocation(116, 0);
 		scrollPane.setViewportView(txtInformacaoAnimal);
 		
@@ -184,7 +198,7 @@ public class AplicativoSonsAnimais extends JFrame {
 		JLabel bgFrame = new JLabel("");
 		bgFrame.setVerticalAlignment(SwingConstants.TOP);
 		bgFrame.setHorizontalAlignment(SwingConstants.CENTER);
-		bgFrame.setIcon(new ImageIcon(AplicativoSonsAnimais.class.getResource("/sonsanimais/imagens/bgFrame.jpg")));
+		bgFrame.setIcon(new ImageIcon(AplicativoSonsAnimais.class.getResource("/sonsanimais/imagens/bgFrame5.jpg")));
 		bgFrame.setBounds(0, 0, 484, 461);
 		contentPane.add(bgFrame);
 		
@@ -203,7 +217,21 @@ public class AplicativoSonsAnimais extends JFrame {
 	
 	public void infoAnimal(String animal) {
 		switch(animal) {
-		case "cachorro": break;
+		case "cachorro":
+			String nomePet = "Derick";
+			String nomePopular = "Cachorro";
+			String nomeCientifico = "Canis Lupus Familiaris";
+			String expectativaVida = "10 a 13 anos";
+			Cachorro cachorro = new Cachorro(nomePopular, nomeCientifico, expectativaVida, nomePet);
+			
+			String informacoes1 = cachorro.toString();
+			String informacoes2 = cachorro.somAnimal();
+			String informacoes3 = cachorro.onomatopeiaSomAnimal();
+			txtInformacaoAnimal.append(informacoes1);
+			txtInformacaoAnimal.append(informacoes2);
+			txtInformacaoAnimal.append(informacoes3);			
+			break;
+			
 		case "gato": break;
 		case "leao": break;
 		case "elefante": break;
